@@ -1,0 +1,42 @@
+using System;
+
+class Program {
+    static void Main(string[] args) {
+      int b=0, c=0, d=0;
+      Console.WriteLine("Введите 4 оценки через пробел");
+      string text = Console.ReadLine();
+      string[] m = text.Split(new char[] {' '});
+  
+      int[] a = Array.ConvertAll(m,int.Parse);
+      for(int i=0;i<4;i++){
+        switch (a[i]){
+          case 2:
+            b++;
+            break;
+          case 3:
+            c++;
+            break;
+          case 4:
+            d++;
+            break;
+        }
+  
+        if(a[i]==4){
+          d++;
+        }
+        
+      }
+       if(b>0){
+          Console.WriteLine("Ну что, студент, пора долг Родине отдать");
+        }
+        else if(c>0){
+          Console.WriteLine("Прощай стипендия!");
+        }
+       else if(d>0){
+          Console.WriteLine("Живи пока, через полгода увидимся");
+        }
+        else{
+          Console.WriteLine("О, отличник появился! На олимпиаду пойдешь");
+        }
+    }
+}

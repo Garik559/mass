@@ -1,0 +1,65 @@
+using System; 
+using System.Linq;
+
+public class MainClass 
+{
+ public static void Main() 
+  {
+   
+   Console.Write("Введите первое число: ");
+   int a = int.Parse(Console.ReadLine());
+   Console.Write("Введите второе число: ");
+   int b = int.Parse(Console.ReadLine());
+
+   int z=a;
+   int l=0;
+   while(z>0){
+     z/=10;
+     l++;
+   }
+
+   int x=b;
+   int k=0;
+   while(x>0){
+     x/=10;
+     k++;
+   }
+
+   int I=0;
+   int[] a1 = new int[l];
+   while(a>0){
+     int r=a%10;
+     a1[I]=r;
+     a/=10;
+     I++;
+   }
+
+   int J=0;
+   int[] b1 = new int[k];
+   while(b>0){
+     int r=b%10;
+     b1[J]=r;
+     b/=10;
+     J++;
+   }
+
+
+   
+   int u=0;
+   for(int i=0;i<a1.Length;i++){
+     for(int j=i+1;j<a1.Length;j++){
+       if(a1[i]==a1[j]) u=a1[i];
+       a1 = a1.Where(e => e != u).ToArray();
+     }
+   }
+
+   Console.Write("Уникальное число: ");
+   for (int i = 0; i < a1.Length; i++){
+     for (int j = 0; j < b1.Length; j++){
+       if (a1[i] == b1[j]) break;
+       if (j == b1.Length - 1 && b1[j] != a1[i]) Console.Write(a1[i] + " ");
+     }
+   }
+   
+ }
+}
